@@ -20,6 +20,9 @@ type ProjectMetadata struct {
 	// Whether scan images automatically when pushing. The valid values are "true", "false".
 	AutoScan *string `json:"auto_scan,omitempty"`
 
+	// Specifies the repository names that will be scanned when pushing. Uses comma-separated delemiter. Uses go filepath.Match() pattern matching. The default empty string "" will match all repositories.
+	AutoScanRepositoryFilters *string `json:"auto_scan_repository_filters,omitempty"`
+
 	// Whether content trust is enabled or not. If it is enabled, user can't pull unsigned images from this project. The valid values are "true", "false".
 	EnableContentTrust *string `json:"enable_content_trust,omitempty"`
 
@@ -37,6 +40,9 @@ type ProjectMetadata struct {
 
 	// Whether this project reuse the system level CVE allowlist as the allowlist of its own.  The valid values are "true", "false". If it is set to "true" the actual allowlist associate with this project, if any, will be ignored.
 	ReuseSysCVEAllowlist *string `json:"reuse_sys_cve_allowlist,omitempty"`
+
+	// Specifies the repository names that scanned when a scan all operation is performed. Uses comma-separated delemiter. Uses go filepath.Match() pattern matching. The default empty string "" will match all repositories.
+	ScanAllRepositoryFilters *string `json:"scan_all_repository_filters,omitempty"`
 
 	// If the vulnerability is high than severity defined here, the images can't be pulled. The valid values are "none", "low", "medium", "high", "critical".
 	Severity *string `json:"severity,omitempty"`

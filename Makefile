@@ -31,7 +31,7 @@ update-spec: ## update all swagger spec files
 	@wget ${HARBOR_2.0_SPEC_URL} -O ${HARBOR_2.0_SPEC}
 
 .PHONY: gen-harbor-api
-gen-harbor-api: update-spec ## generate goswagger client for harbor
+gen-harbor-api:  ## generate goswagger client for harbor
 	@$(SWAGGER) generate client -f ${HARBOR_2.0_SPEC} --target=$(HARBOR_CLIENT_2.0_DIR) --template=stratoscale --additional-initialism=CVE --additional-initialism=GC --additional-initialism=OIDC
 
 .PHONY: cleanup

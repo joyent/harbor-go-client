@@ -7165,6 +7165,14 @@ definitions:
         type: string
         description: 'Whether scan images automatically when pushing. The valid values are "true", "false".'
         x-nullable: true
+      auto_scan_repository_filters:
+        type: string
+        description: 'Specifies the repository names that will be scanned when pushing. Uses comma-separated delemiter. Uses go filepath.Match() pattern matching. The default empty string "" will match all repositories.'
+        x-nullable: true
+      scan_all_repository_filters:
+        type: string
+        description: 'Specifies the repository names that scanned when a scan all operation is performed. Uses comma-separated delemiter. Uses go filepath.Match() pattern matching. The default empty string "" will match all repositories.'
+        x-nullable: true
       reuse_sys_cve_allowlist:
         type: string
         description: 'Whether this project reuse the system level CVE allowlist as the allowlist of its own.  The valid values are "true", "false".
